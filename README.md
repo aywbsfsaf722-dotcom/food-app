@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food App</title>
+<title>تطبيق الطعام</title>
 
 <style>
 * {
@@ -55,6 +55,7 @@ h1 {
   padding: 12px 16px;
   border-radius: 20px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .category.active {
@@ -126,18 +127,18 @@ h1 {
 <body>
 
 <header>
-  <div class="container">
-    <h1>🍔 Food App</h1>
-    <p>اكتشف وجبتك المفضلة واطلبها بسهولة</p>
-  </div>
+<div class="container">
+<h1>🍔 تطبيق الطعام</h1>
+<p>اكتشف وجبتك المفضلة واطلبها بسهولة</p>
+</div>
 </header>
 
 <main class="container">
 
 <input
-  id="search"
-  class="search"
-  placeholder="🔎 ابحث عن وجبة..."
+id="search"
+class="search"
+placeholder="🔎 ابحث عن وجبة..."
 >
 
 <div class="categories">
@@ -175,63 +176,54 @@ h1 {
 <script>
 
 const foods = [
-
 {
 name: "برغر لحم",
 category: "burger",
 price: 850,
 emoji: "🍔"
 },
-
 {
 name: "بيتزا مارغريتا",
 category: "pizza",
 price: 1000,
 emoji: "🍕"
 },
-
 {
 name: "دجاج مقرمش",
 category: "chicken",
 price: 900,
 emoji: "🍗"
 },
-
 {
 name: "بطاطا مقلية",
 category: "chicken",
 price: 300,
 emoji: "🍟"
 },
-
 {
 name: "بيتزا دجاج",
 category: "pizza",
 price: 1200,
 emoji: "🍕"
 },
-
 {
 name: "مشروب غازي",
 category: "drink",
 price: 150,
 emoji: "🥤"
 },
-
 {
 name: "برغر دجاج",
 category: "burger",
 price: 750,
 emoji: "🍔"
 },
-
 {
 name: "عصير طبيعي",
 category: "drink",
 price: 350,
 emoji: "🧃"
 }
-
 ];
 
 let selectedCategory = "all";
@@ -240,9 +232,7 @@ let cartCount = 0;
 function displayFoods() {
 
 const search =
-document.getElementById("search")
-.value
-.toLowerCase();
+document.getElementById("search").value.toLowerCase();
 
 const container =
 document.getElementById("foods");
@@ -258,7 +248,6 @@ food.name.toLowerCase().includes(search)
 .forEach(food => {
 
 container.innerHTML += `
-
 <div class="card">
 
 <div class="image">
@@ -273,15 +262,13 @@ ${food.emoji}
 ${food.price} دج
 </div>
 
-<button class="add"
-onclick="addToCart()">
+<button class="add" onclick="addToCart()">
 أضف للسلة
 </button>
 
 </div>
 
 </div>
-
 `;
 
 });
@@ -292,23 +279,18 @@ function addToCart() {
 
 cartCount++;
 
-document.getElementById("cart")
-.textContent =
+document.getElementById("cart").textContent =
 "🛒 السلة (" + cartCount + ")";
 
 }
 
-document
-.querySelectorAll(".category")
+document.querySelectorAll(".category")
 .forEach(button => {
 
 button.onclick = () => {
 
-document
-.querySelectorAll(".category")
-.forEach(b =>
-b.classList.remove("active")
-);
+document.querySelectorAll(".category")
+.forEach(b => b.classList.remove("active"));
 
 button.classList.add("active");
 
@@ -321,12 +303,8 @@ displayFoods();
 
 });
 
-document
-.getElementById("search")
-.addEventListener(
-"input",
-displayFoods
-);
+document.getElementById("search")
+.addEventListener("input", displayFoods);
 
 displayFoods();
 
